@@ -1,6 +1,6 @@
-console.log("test");
 $(document).ready(function() {
     var array = [];
+    var monthlyExp = 0;
     $('#employeeinfo').on('submit', function(event) {
       event.preventDefault();
 
@@ -17,13 +17,14 @@ $(document).ready(function() {
         values[element.name] = element.value;
       });
 
-      console.log(values);
-
       // clear out inputs
       $('#employeeinfo').find('input[type=text]').val('');
 
       // append to DOM
       appendDom(values);
+      monthlyExp = monthlyExp + (parseInt(values.employeeAnnualSalary) / 12);
+      $('#monthlyExpenditures').text(monthlyExp);
+
     });
 
     // function appendDom(empInfo) {
