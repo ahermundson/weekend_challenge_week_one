@@ -20,22 +20,28 @@ $(document).ready(function() {
       // clear out inputs
       $('#employeeinfo').find('input[type=text]').val('');
 
+
       // append to DOM
       appendDom(values);
       monthlyExp = monthlyExp + (parseInt(values.employeeAnnualSalary) / 12);
       $('#monthlyExpenditures').text(monthlyExp);
 
     });
-
-    // function appendDom(empInfo) {
-    //   $('#container').append('<div class="person"></div>');
-    //   var $el = $('#container').children().last();
-    //
-    //   $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + '</p>');
-    // }
+    //remove employee when delete button is pressed
+    $('#employeeListTable').on('click', '.delete', function() {
+      // monthlyExp -= $(this).closest('.employee').data("mExpenditure");
+      // console.log($(this).closest('.employee').data("mExpenditure"));
+      $('#monthlyExpenditures').text(monthlyExp);
+      $(this).closest('.employee').remove();
+    });
 
     //append new employee to table
     function appendDom(empInfo) {
-      $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + empInfo.employeeAnnualSalary + '</th><th><button>Delete</button></th>');
+      var expenditure = parseInt(empInfo.employeeAnnualSalary / 12)
+      // console.log(expenditure);
+      $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + empInfo.employeeAnnualSalary + '</th><th><button class="delete">Delete</button></th>');
+      $('.employee').data("mExpenditure", expenditure);
+      console.log($('.employee').data("mExpenditure"));
     }
+
 });
