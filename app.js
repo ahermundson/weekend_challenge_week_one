@@ -32,9 +32,11 @@ $(document).ready(function() {
 
     //function to delete employee info from dom and reduce monthly expenditure total
     function deleteEmployee() {
+      if (confirm("Are you sure you wish to delete this employee?")) {
       monthlyExp -= $(this).closest('.employee').data("mExpenditure");
       $('#monthlyExpenditures').text(monthlyExp);
       $(this).closest('.employee').remove();
+      }
     }
 
 });
