@@ -5,16 +5,17 @@
     <script type="text/javascript" src="../vendor/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
   </head>
   <body>
     <section>
       <header>
         <h1>Employee Data Collector</h1>
       </header>
-    </section>
-    <section>
       <main>
-        <div class="form-flex">
+        <div class="employee-form">
           <form id="employeeinfo">
             <label for="employeefirstname">First Name:</label>
             <input type="text" id="employeefirstname" name="employeefirstname" />
@@ -50,7 +51,7 @@
         </div>
 
         <div class="expeditures">
-          <h3>Monthly Salary Expenditures: <span id="monthlyExpenditures">0</span></h3>
+          <h2>Monthly Salary Expenditures: <span id="monthlyExpenditures">$0.00</span></h2>
         </div>
 
       </main>

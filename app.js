@@ -24,17 +24,17 @@ $(document).ready(function() {
     //function to append new employee to table
     function appendDom(empInfo) {
       var expenditure = parseFloat(empInfo.employeeAnnualSalary / 12)
-      $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + empInfo.employeeAnnualSalary + '</th><th><button class="delete">Delete</button></th>');
+      $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + parseFloat(empInfo.employeeAnnualSalary).toLocaleString('en', {style: 'currency', currency: 'USD'}) + '</th><th><button class="delete">Delete</button></th>');
       $('#employeeListTable').find('.employee:last').data("mExpenditure", expenditure);
       monthlyExp = monthlyExp + expenditure;
-      $('#monthlyExpenditures').text(monthlyExp);
+      $('#monthlyExpenditures').text(monthlyExp.toLocaleString('en', {style: 'currency', currency: 'USD'}));
     }
 
     //function to delete employee info from dom and reduce monthly expenditure total
     function deleteEmployee() {
       if (confirm("Are you sure you wish to delete this employee?")) {
       monthlyExp -= $(this).closest('.employee').data("mExpenditure");
-      $('#monthlyExpenditures').text(monthlyExp);
+      $('#monthlyExpenditures').text(monthlyExp.toLocaleString('en', {style: 'currency', currency: 'USD'}));
       $(this).closest('.employee').remove();
       }
     }
