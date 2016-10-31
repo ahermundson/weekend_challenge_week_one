@@ -14,9 +14,12 @@ $(document).ready(function() {
         values[element.name] = element.value;
       });
       // clear out inputs
-      $('#employeeinfo').find('input[type=text]').val('');
+      // $('#employeeinfo').find('input[type=text], input[type=number]').val('');
+
       // append to DOM
       appendDom(values);
+      (this).reset();
+      $('#employeefirstname').focus();
     });
     //remove employee when delete button is clicked
     $('#employeeListTable').on('click', '.delete', deleteEmployee);
