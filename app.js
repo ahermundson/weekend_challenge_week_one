@@ -28,7 +28,7 @@ $(document).ready(function() {
     //function to append new employee to table
     function appendDom(empInfo) {
       var expenditure = parseFloat(empInfo.employeeAnnualSalary / 12);
-      $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + parseFloat(empInfo.employeeAnnualSalary).toLocaleString('en', {style: 'currency', currency: 'USD'}) + '</th><th><button class="delete">Delete</button></th>');
+      $('#employeeListTable').append('<tr class="employee"><td>' + empInfo.employeefirstname + '</td><td>' + empInfo.employeelastname + '</td><td>' + empInfo.employeeIdNumber + '</td><td>' + empInfo.employeeJobTitle + '</td><td>' + parseFloat(empInfo.employeeAnnualSalary).toLocaleString('en', {style: 'currency', currency: 'USD'}) + '</td><td><button class="delete">Delete</button></td></tr>');
       $('.employee').fadeIn('slow');
       $('#employeeListTable').find('.employee:last').data("mExpenditure", expenditure);
       monthlyExp = monthlyExp + expenditure;
