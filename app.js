@@ -13,11 +13,12 @@ $(document).ready(function() {
         // here, dot notation wouldn't work
         values[element.name] = element.value;
       });
-      // clear out inputs
+
       // $('#employeeinfo').find('input[type=text], input[type=number]').val('');
 
       // append to DOM
       appendDom(values);
+      // clear out inputs
       (this).reset();
       $('#employeefirstname').focus();
     });
@@ -26,7 +27,7 @@ $(document).ready(function() {
 
     //function to append new employee to table
     function appendDom(empInfo) {
-      var expenditure = parseFloat(empInfo.employeeAnnualSalary / 12)
+      var expenditure = parseFloat(empInfo.employeeAnnualSalary / 12);
       $('#employeeListTable').append('<tr class="employee"><th>' + empInfo.employeefirstname + '</th><th>' + empInfo.employeelastname + '</th><th>' + empInfo.employeeIdNumber + '</th><th>' + empInfo.employeeJobTitle + '</th><th>' + parseFloat(empInfo.employeeAnnualSalary).toLocaleString('en', {style: 'currency', currency: 'USD'}) + '</th><th><button class="delete">Delete</button></th>');
       $('.employee').fadeIn('slow');
       $('#employeeListTable').find('.employee:last').data("mExpenditure", expenditure);
